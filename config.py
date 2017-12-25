@@ -17,7 +17,9 @@ class States(Enum):
     """
     S_START = "0"  # Начало нового диалога
     S_CHOOSE_CRYPTO = "1"
-    S_ENTER_SUM = "2"
-    S_CHOOSE_CURRENCY_SITE = "3"
-    S_ENTER_CITY = "4"
-    S_CHOOSE_MARGINALITY = "5"
+    S_TYPE_OWN_CRYPTO = "2"
+    S_ENTER_SUM = "3"
+    S_CHOOSE_CURRENCY_SITE = "4"
+    S_TYPE_OWN_CURRENCY_SITE = "5"
+    S_ENTER_CITY = "6"
+    S_CHOOSE_MARGINALITY = "7"

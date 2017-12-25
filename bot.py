@@ -27,14 +27,11 @@ def send_welcome(message):
         message.chat.id, "Пожалуйста, выберите из списка одну из услуг...",
         reply_markup=create_keyboard(main_buttons_without_img, 1)
     )
-    db.get_own_orders(message.chat.id)
-
     dbhelper.set_state(message.chat.id, config.States.S_CHOOSE_CRYPTO.value)
-    # print('chat id is {}'.format(message.chat.id))
 
 
 @bot.message_handler(commands=['Продать'])
-def send_welcome(message):
+def send_crypto(message):
     print('ПРОДАТЬ COMMAND WORKING')
     bot.send_message(
         message.chat.id, "Пожалуйста, выберите криптовалюту из списка",
@@ -43,12 +40,21 @@ def send_welcome(message):
     dbhelper.get_current_state(message.chat.id)
 
 
-# По команде /reset будем сбрасывать состояния, возвращаясь к началу диалога
+# По команде /Сбросить будем сбрасывать состояния, возвращаясь к началу диалога
 @bot.message_handler(commands=["Сбросить"])
 def cmd_reset(message):
     bot.send_message(
         message.chat.id, "Все ваши действия были отменены. Пожалуйста, выберите из списка одну из услуг...",
         reply_markup=create_inline_keyboard(crypto_sell_buttons, type='crypto')
+    )
+    dbhelper.set_state(message.chat.id, config.States.S_CHOOSE_CRYPTO.value)
+
+
+@bot.message_handler(commands=["Главная"])
+def cmd_reset(message):
+    bot.send_message(
+        message.chat.id, "Пожалуйста, выберите из списка одну из услуг...",
+        reply_markup=create_keyboard(main_buttons_without_img, 1)
     )
     dbhelper.set_state(message.chat.id, config.States.S_CHOOSE_CRYPTO.value)
 
@@ -100,11 +106,28 @@ def get_own_orders(message):
 #     dbhelper.set_state(chat_id, config.States.S_CHOOSE_CURRENCY_SITE.value)
 
 
-# 3 - CHHOSE CURRENCY
+# 2 - ENTER OWN CRYPTO
+@bot.message_handler(
+    func=lambda message: dbhelper.get_current_state(message.chat.id) == config.States.S_TYPE_OWN_CRYPTO.value)
+def user_own_currency(message):
+    print('S_TYPE_OWN_CURRENCY_SITE is called')
+    chat_id = message.chat.id
+    crypto = message.text
+    print(crypto)
+    bot.send_message(
+        chat_id, 'На какую сумму продаете($)?',
+        reply_markup=create_keyboard(['/Сбросить', '/Главная'], 1)
+    )
+    session.create_session_with_crypto(chat_id, crypto=crypto)
+    dbhelper.set_state(chat_id, config.States.S_CHOOSE_CURRENCY_SITE.value)
+    print('--------------------------------------------------------------------')
+
+
+# 4 - CHHOSE CURRENCY
 @bot.message_handler(
     func=lambda message: dbhelper.get_current_state(message.chat.id) == config.States.S_CHOOSE_CURRENCY_SITE.value)
-def user_entering_sum(message):
-    print('S_ENTER_CURRENCY_SITE is working')
+def user_entering_currency(message):
+    print('S_ENTER_CURRENCY_SITE is called')
     chat_id = message.chat.id
     price = message.text
     print(price)
@@ -116,20 +139,38 @@ def user_entering_sum(message):
     print('--------------------------------------------------------------------')
 
 
-# 4 - ENTER CITY
+# 5 - ENTER OWN CURRENCY SITE
+@bot.message_handler(
+    func=lambda message: dbhelper.get_current_state(message.chat.id) == config.States.S_TYPE_OWN_CURRENCY_SITE.value)
+def user_entering_currency(message):
+    print('S_TYPE_OWN_CURRENCY_SITE is called')
+    chat_id = message.chat.id
+    cur_site = message.text
+    print(cur_site)
+    bot.send_message(
+        chat_id, 'В каком городе продаете?',
+        reply_markup=create_keyboard(['/Сбросить', '/Главная'], 1)
+    )
+    session.update_session(chat_id, cur_site=cur_site)
+    dbhelper.set_state(chat_id, config.States.S_ENTER_CITY.value)
+    print('--------------------------------------------------------------------')
+
+
+
+# 6 - ENTER CITY
 @bot.message_handler(
     func=lambda message: dbhelper.get_current_state(message.chat.id) == config.States.S_ENTER_CITY.value)
-def user_entering_sum(message):
+def user_entering_city(message):
     print('S_ENTER_CITY is working')
     chat_id = message.chat.id
     city = message.text
     print(city)
     bot.send_message(
-        message.chat.id, "Выберите размер комиссии (%)",
+        chat_id, "Выберите размер комиссии (%)",
         reply_markup=create_inline_keyboard(marginality_amount_buttons, type='marginality')
     )
     session.update_session(chat_id, city=city)
-    dbhelper.set_state(message.chat.id, config.States.S_CHOOSE_MARGINALITY.value)
+    dbhelper.set_state(chat_id, config.States.S_CHOOSE_MARGINALITY.value)
     print('--------------------------------------------------------------------')
 
 
@@ -160,30 +201,41 @@ def test_callback(call):
     if type == 'crypto':
         if id != 26:
             bot.send_message(
-                call.message.chat.id, 'На какую сумму продаете($)?',
-                reply_markup=create_keyboard(['/Сбросить'], 1)
+                chat_id, 'На какую сумму продаете($)?',
+                reply_markup=create_keyboard(['/Сбросить', '/Главная'], 1)
             )
             # Create session object
-            chat_id = call.message.chat.id
-            session.create_session_with_crypto(chat_id, crypto_sell_buttons[id])
-            session.get_session(chat_id)
+            crypto = ''.join(filter(lambda x: x.isalpha() or x in ['(', ')'], crypto_sell_buttons[id]))
+            session.create_session_with_crypto(chat_id, crypto)
+            dbhelper.set_state(chat_id, config.States.S_CHOOSE_CURRENCY_SITE.value)
         else:
             print('other')
 
-        dbhelper.set_state(call.message.chat.id, config.States.S_CHOOSE_CURRENCY_SITE.value)
+            bot.send_message(
+                chat_id, 'Пожалуйста, введите собственный вариант названия криптовалюты...',
+                reply_markup=create_keyboard(['/Сбросить', '/Главная'], 1)
+            )
+            dbhelper.set_state(chat_id, config.States.S_TYPE_OWN_CRYPTO.value)
+
         print('--------------------------------------------------------------------')
 
     elif type == 'currency':
-        cur_list = currency_site_buttons[id - 1].split('.')[1:]
-        cur_site = '{}.{}'.format(cur_list[0], cur_list[1])
-        print('cur_site is {}'.format(cur_site))
         if id != 8:
+            cur_list = currency_site_buttons[id - 1].split('.')[1:]
+            cur_site = '{}.{}'.format(cur_list[0], cur_list[1])
+            print('cur_site is {}'.format(cur_site))
             bot.send_message(
-                call.message.chat.id, 'В каком городе продаете?',
-                reply_markup=create_keyboard(['/Сбросить'], 1)
+                chat_id, 'В каком городе продаете?',
+                reply_markup=create_keyboard(['/Сбросить', '/Главная'], 1)
             )
             session.update_session(chat_id, cur_site=cur_site)
-            dbhelper.set_state(call.message.chat.id, config.States.S_ENTER_CITY.value)
+            dbhelper.set_state(chat_id, config.States.S_ENTER_CITY.value)
+        else:
+            print('other currency')
+            bot.send_message(
+                chat_id, "Пожалуйста, введите собственный вариант сайта с курсом криптовалют..."
+            )
+            dbhelper.set_state(chat_id, config.States.S_TYPE_OWN_CURRENCY_SITE.value)
         print('--------------------------------------------------------------------')
 
     elif type == 'marginality':
@@ -221,5 +273,5 @@ if __name__ == '__main__':
     try:
         bot.polling(none_stop=True, timeout=60)
     except Exception as ex:
-        time.sleep(1)
         logger.error(ex)
+        time.sleep(3)
