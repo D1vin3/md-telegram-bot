@@ -2,7 +2,6 @@ import emoji
 import time
 import config
 import dbhelper
-import logging
 import telebot
 from telebot import TeleBot, types
 from config import token
@@ -12,8 +11,6 @@ from buttons import crypto_sell_buttons, main_buttons_without_img, \
 from utils import create_inline_keyboard, create_keyboard, formatItems
 
 bot = TeleBot(token)
-logger = telebot.logger
-telebot.logger.setLevel(logging.ERROR)
 
 db = DBHelper()
 session = SessionDb()
@@ -269,9 +266,10 @@ def test_callback(call):
 
 print('Bot has been switched on')
 if __name__ == '__main__':
-    # while True:
-    try:
-        bot.polling(none_stop=True, timeout=60)
-    except Exception as ex:
-        logger.error(ex)
-        time.sleep(3)
+    while True:
+        try:
+            bot.polling(none_stop=True, timeout=60)
+        except Exception as ex:
+            # logger.error(ex)
+            print(ex)
+            time.sleep(5)
