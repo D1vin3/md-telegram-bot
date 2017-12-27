@@ -272,9 +272,7 @@ def test_callback(call):
 
 print('Bot has been switched on')
 if __name__ == '__main__':
-    while True:
-        try:
-            bot.polling(none_stop=True, timeout=60)
-        except Exception as ex:
-            logger.error(ex)
-            time.sleep(5)
+    try:
+        bot.polling(none_stop=True, timeout=60)
+    except Exception as ex:
+        logger.error(ex)

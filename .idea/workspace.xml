@@ -26,11 +26,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="bot.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="bot.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+            <state relative-caret-position="802">
+              <caret line="277" column="24" lean-forward="false" selection-start-line="277" selection-start-column="24" selection-end-line="277" selection-end-column="24" />
               <folding>
                 <element signature="e#43#55#0" expanded="true" />
               </folding>
@@ -41,8 +41,18 @@
       <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
+            <state relative-caret-position="262">
               <caret line="25" column="4" lean-forward="false" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="856">
+              <caret line="103" column="0" lean-forward="true" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -61,30 +71,10 @@
       <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
+            <state relative-caret-position="324">
               <caret line="18" column="25" lean-forward="false" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
               <folding>
                 <element signature="e#24#45#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dbhelper.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dbhelper.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="756">
-              <caret line="45" column="8" lean-forward="false" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="8" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-                <marker date="1514215228837" expanded="true" signature="2601:2881" ph="CREATE TABLE... IF" />
-                <marker date="1514215228837" expanded="true" signature="3034:3129" ph="INSERT INTO items... " />
-                <marker date="1514215228837" expanded="true" signature="3319:3356" ph="SELECT * FRO... orders" />
-                <marker date="1514215228837" expanded="true" signature="3575:3608" ph="DELETE FROM " />
-                <marker date="1514215228837" expanded="true" signature="3864:3878" ph="SELECT * FRO... orders" />
-                <marker date="1514215228837" expanded="true" signature="3864:3884" ph="SELECT * FRO... orders" />
-                <marker date="1514215228837" expanded="true" signature="4064:4081" ph="DROP TABLE o... " />
-                <marker date="1514215228837" expanded="true" signature="4074:4081" ph="SELECT * FRO... orders" />
               </folding>
             </state>
           </provider>
@@ -137,11 +127,11 @@
         <option value="$PROJECT_DIR$/bot/md/urls.py" />
         <option value="$PROJECT_DIR$/bot/md/views.py" />
         <option value="$PROJECT_DIR$/utils.py" />
-        <option value="$PROJECT_DIR$/dbhelper.py" />
         <option value="$PROJECT_DIR$/buttons.py" />
         <option value="$PROJECT_DIR$/config.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/bot.py" />
+        <option value="$PROJECT_DIR$/dbhelper.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -437,7 +427,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4446764" sideWeight="0.49806523" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4446764" sideWeight="0.49806523" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -503,14 +493,14 @@
           <caret line="45" column="8" lean-forward="false" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="8" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <marker date="1514215228837" expanded="true" signature="2601:2881" ph="CREATE TABLE... IF" />
-            <marker date="1514215228837" expanded="true" signature="3034:3129" ph="INSERT INTO items... " />
-            <marker date="1514215228837" expanded="true" signature="3319:3356" ph="SELECT * FRO... orders" />
-            <marker date="1514215228837" expanded="true" signature="3575:3608" ph="DELETE FROM " />
-            <marker date="1514215228837" expanded="true" signature="3864:3878" ph="SELECT * FRO... orders" />
-            <marker date="1514215228837" expanded="true" signature="3864:3884" ph="SELECT * FRO... orders" />
-            <marker date="1514215228837" expanded="true" signature="4064:4081" ph="DROP TABLE o... " />
-            <marker date="1514215228837" expanded="true" signature="4074:4081" ph="SELECT * FRO... orders" />
+            <marker date="1514367003971" expanded="true" signature="2601:2881" ph="CREATE TABLE... IF" />
+            <marker date="1514367003971" expanded="true" signature="3034:3129" ph="INSERT INTO items... " />
+            <marker date="1514367003971" expanded="true" signature="3319:3356" ph="SELECT * FRO... orders" />
+            <marker date="1514367003971" expanded="true" signature="3575:3608" ph="DELETE FROM " />
+            <marker date="1514367003971" expanded="true" signature="3864:3878" ph="SELECT * FRO... orders" />
+            <marker date="1514367003971" expanded="true" signature="3864:3884" ph="SELECT * FRO... orders" />
+            <marker date="1514367003971" expanded="true" signature="4064:4081" ph="DROP TABLE o... " />
+            <marker date="1514367003971" expanded="true" signature="4074:4081" ph="SELECT * FRO... orders" />
           </folding>
         </state>
       </provider>
@@ -557,14 +547,14 @@
           <caret line="45" column="8" lean-forward="false" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="8" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
-            <marker date="1514215228837" expanded="true" signature="2601:2881" ph="CREATE TABLE... IF" />
-            <marker date="1514215228837" expanded="true" signature="3034:3129" ph="INSERT INTO items... " />
-            <marker date="1514215228837" expanded="true" signature="3319:3356" ph="SELECT * FRO... orders" />
-            <marker date="1514215228837" expanded="true" signature="3575:3608" ph="DELETE FROM " />
-            <marker date="1514215228837" expanded="true" signature="3864:3878" ph="SELECT * FRO... orders" />
-            <marker date="1514215228837" expanded="true" signature="3864:3884" ph="SELECT * FRO... orders" />
-            <marker date="1514215228837" expanded="true" signature="4064:4081" ph="DROP TABLE o... " />
-            <marker date="1514215228837" expanded="true" signature="4074:4081" ph="SELECT * FRO... orders" />
+            <marker date="1514367003971" expanded="true" signature="2601:2881" ph="CREATE TABLE... IF" />
+            <marker date="1514367003971" expanded="true" signature="3034:3129" ph="INSERT INTO items... " />
+            <marker date="1514367003971" expanded="true" signature="3319:3356" ph="SELECT * FRO... orders" />
+            <marker date="1514367003971" expanded="true" signature="3575:3608" ph="DELETE FROM " />
+            <marker date="1514367003971" expanded="true" signature="3864:3878" ph="SELECT * FRO... orders" />
+            <marker date="1514367003971" expanded="true" signature="3864:3884" ph="SELECT * FRO... orders" />
+            <marker date="1514367003971" expanded="true" signature="4064:4081" ph="DROP TABLE o... " />
+            <marker date="1514367003971" expanded="true" signature="4074:4081" ph="SELECT * FRO... orders" />
           </folding>
         </state>
       </provider>
@@ -609,9 +599,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dbhelper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="45" column="8" lean-forward="false" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <marker date="1514367003971" expanded="true" signature="2601:2881" ph="CREATE TABLE... IF" />
+            <marker date="1514367003971" expanded="true" signature="3034:3129" ph="INSERT INTO items... " />
+            <marker date="1514367003971" expanded="true" signature="3319:3356" ph="SELECT * FRO... orders" />
+            <marker date="1514367003971" expanded="true" signature="3575:3608" ph="DELETE FROM " />
+            <marker date="1514367003971" expanded="true" signature="3864:3878" ph="SELECT * FRO... orders" />
+            <marker date="1514367003971" expanded="true" signature="3864:3884" ph="SELECT * FRO... orders" />
+            <marker date="1514367003971" expanded="true" signature="4064:4081" ph="DROP TABLE o... " />
+            <marker date="1514367003971" expanded="true" signature="4074:4081" ph="SELECT * FRO... orders" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="802">
+          <caret line="277" column="24" lean-forward="false" selection-start-line="277" selection-start-column="24" selection-end-line="277" selection-end-column="24" />
+          <folding>
+            <element signature="e#43#55#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
+        <state relative-caret-position="324">
           <caret line="18" column="25" lean-forward="false" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
           <folding>
             <element signature="e#24#45#0" expanded="true" />
@@ -621,44 +639,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
+        <state relative-caret-position="262">
           <caret line="25" column="4" lean-forward="false" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dbhelper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="45" column="8" lean-forward="false" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-            <marker date="1514215228837" expanded="true" signature="2601:2881" ph="CREATE TABLE... IF" />
-            <marker date="1514215228837" expanded="true" signature="3034:3129" ph="INSERT INTO items... " />
-            <marker date="1514215228837" expanded="true" signature="3319:3356" ph="SELECT * FRO... orders" />
-            <marker date="1514215228837" expanded="true" signature="3575:3608" ph="DELETE FROM " />
-            <marker date="1514215228837" expanded="true" signature="3864:3878" ph="SELECT * FRO... orders" />
-            <marker date="1514215228837" expanded="true" signature="3864:3884" ph="SELECT * FRO... orders" />
-            <marker date="1514215228837" expanded="true" signature="4064:4081" ph="DROP TABLE o... " />
-            <marker date="1514215228837" expanded="true" signature="4074:4081" ph="SELECT * FRO... orders" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="838">
-          <caret line="102" column="5" lean-forward="false" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="e#43#55#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="856">
+          <caret line="103" column="0" lean-forward="true" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
