@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 import emoji
-import time
 import config
 import dbhelper
 import logging
@@ -65,11 +64,16 @@ def cmd_reset(message):
 @bot.message_handler(commands=["Мои_объявления"])
 def get_own_orders(message):
     print('МОИ ОБЪЯВЛЕНИЯ')
+    chat_id = message.chat.id
     orders = db.get_own_orders(message.chat.id)
-    for order in orders:
-        text = "Вы продаете: {} \nСумма: {} \nЦена по курсу: {} \nГород: {} \nКомиссия в процентах: {}\n\n". \
-            format(order[2], order[3], order[4], order[5], order[6])
-        bot.send_message(message.chat.id, text, reply_markup=create_inline_keyboard(order, 'deleteOrder'))
+    if len(orders) is not 0:
+        for order in orders:
+            text = "Вы продаете: {} \nСумма: {} \nЦена по курсу: {} \nГород: {} \nКомиссия в процентах: {}\n\n". \
+                format(order[2], order[3], order[4], order[5], order[6])
+            bot.send_message(chat_id, text, reply_markup=create_inline_keyboard(order, 'deleteOrder'))
+    else:
+        text = "Список ваших объявлений пуст. Добавьте первое, нажав на /Продать"
+        bot.send_message(chat_id, text)
 
 
 @bot.message_handler(commands=["Купить"])
@@ -77,19 +81,22 @@ def get_own_orders(message):
     print('КУПИТЬ')
     chat_id = message.chat.id
     orders = db.get_orders()
-    for order in orders:
-        user = bot.get_chat(order[1])
-        username = str()
-        if hasattr(user, 'username'):
-            username = "@{}".format(user.username)
-        else:
-            username = "{} {}".format(user.first_name, user.last_name)
-        print('username is {}'.format(username))
 
-        text = "{} продает: {} \nСумма: {} \nЦена по курсу: {} \nГород: {} \nКомиссия в процентах: {}\n\n". \
-            format(username, order[2], order[3], order[4], order[5], order[6])
+    if len(orders) is not 0:
+        for order in orders:
+            user = bot.get_chat(order[1])
+            username = str()
+            if hasattr(user, 'username'):
+                username = "@{}".format(user.username)
+            else:
+                username = "{} {}".format(user.first_name, user.last_name)
+            print('username is {}'.format(username))
+            text = "{} продает: {} \nСумма: {} \nЦена по курсу: {} \nГород: {} \nКомиссия в процентах: {}\n\n". \
+                format(username, order[2], order[3], order[4], order[5], order[6])
+            bot.send_message(chat_id, text)
+    else:
+        text = "В данный момент записей нет. Станьте первым кто добавит, нажав на /Продать"
         bot.send_message(chat_id, text)
-
 
     #####################################################################################################################
     """
